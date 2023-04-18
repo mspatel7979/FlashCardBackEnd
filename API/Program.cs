@@ -1,6 +1,12 @@
+using DataAccess;
+using Microsoft.EntityFrameworkCore;
+using DataAccess.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<FlashCardServices>();
+builder.Services.AddDbContext<CluDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("cluDB")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
