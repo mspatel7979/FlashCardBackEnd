@@ -21,7 +21,7 @@ public class FlashCardController : ControllerBase
         _repo = repo;
     }
 
-    [HttpGet]
+    [HttpGet("All")]
     public List<Flashcard> GetAllFlashCard(){
         return _repo.GetAllFlashCards();
     }
