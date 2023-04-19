@@ -25,9 +25,9 @@ public class FlashCardController : ControllerBase
     public List<Flashcard> GetAllFlashCard(){
         return _repo.GetAllFlashCards();
     }
-    [HttpPost]
-    public int PostFlashCard([FromQuery] int id){
-        return 0;
+    [HttpPost("Add")]
+    public Flashcard AddFlashCard(Flashcard fc){
+        return _repo.PostFlashCards(fc);;
     }
     [HttpGet("{id}")]
     public int GetFlashCardByID(int id){
