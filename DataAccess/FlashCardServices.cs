@@ -11,7 +11,7 @@ public class FlashCardServices
         _context = context;
     }
 
-    public List<Flashcard> GellAllFlashCards(){
+    public List<Flashcard> GetAllFlashCards(){
         return _context.Flashcards.ToList();
     }
 }

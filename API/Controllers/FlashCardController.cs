@@ -1,4 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using DataAccess.Entities;
+using DataAccess;
 
 namespace API.Controllers;
 
@@ -7,15 +13,17 @@ namespace API.Controllers;
 public class FlashCardController : ControllerBase
 {
     private readonly ILogger<FlashCardController> _logger;
+    private readonly FlashCardServices _repo;
 
-    public FlashCardController(ILogger<FlashCardController> logger)
+    public FlashCardController(ILogger<FlashCardController> logger, FlashCardServices repo)
     {
         _logger = logger;
+        _repo = repo;
     }
 
     [HttpGet]
-    public int GetAllFlashCard([FromQuery] int id){
-        return 0;
+    public List<Flashcard> GetAllFlashCard(){
+        return _repo.GetAllFlashCards();
     }
     [HttpPost]
     public int PostFlashCard([FromQuery] int id){
