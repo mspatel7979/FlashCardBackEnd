@@ -30,16 +30,16 @@ public class FlashCardController : ControllerBase
         return _repo.PostFlashCards(fc);;
     }
     [HttpGet("{id}")]
-    public int GetFlashCardByID(int id){
-        return 0;
+    public Flashcard GetFlashCardByID(int id){
+        return _repo.FlashCardByID(id);
     }
-    [HttpPut("{id}")]
-    public int UpdateFlashCardByID(int id){
-        return 0;
+    [HttpPut("Update")]
+    public Flashcard UpdateFlashCardByID(Flashcard fc){
+        return _repo.UpdateFlashCard(fc);
     }
-    [HttpDelete("{id}")]
-    public int DeleteGetFlashCardByID(int id){
-        return 0;
+    [HttpDelete("Delete")]
+    public Flashcard DeleteGetFlashCardByID(Flashcard fc){
+        return _repo.DeleteFlashCard(fc);
     }
 
 }
