@@ -25,21 +25,24 @@ public class FlashCardController : ControllerBase
     public List<Flashcard> GetAllFlashCard(){
         return _repo.GetAllFlashCards();
     }
+
     [HttpPost("Add")]
     public Flashcard AddFlashCard(Flashcard fc){
         return _repo.PostFlashCards(fc);;
     }
+
     [HttpGet("{id}")]
     public Flashcard GetFlashCardByID(int id){
         return _repo.FlashCardByID(id);
     }
+
     [HttpPut("Update")]
     public Flashcard UpdateFlashCardByID(Flashcard fc){
         return _repo.UpdateFlashCard(fc);
     }
+    
     [HttpDelete("Delete")]
     public Flashcard DeleteGetFlashCardByID(Flashcard fc){
         return _repo.DeleteFlashCard(fc);
     }
-
 }
